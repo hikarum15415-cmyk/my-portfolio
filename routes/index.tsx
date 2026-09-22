@@ -2,6 +2,7 @@ import { getWorks } from "../microcms.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Header from "../components/Header.tsx";
 import WorksGallery from "../islands/WorksGallery.tsx";
+import ContactForm from "../islands/ContactForm.tsx";
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
@@ -30,6 +31,13 @@ export default function Home({ data }: PageProps) {
             作品一覧
           </h2>
           <WorksGallery works={works} />
+        </div>
+
+        <div id="contact" class="mt-20 scroll-mt-20">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2">
+            お問い合わせ
+          </h2>
+          <ContactForm />
         </div>
       </div>
     </div>
