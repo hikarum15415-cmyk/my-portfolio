@@ -14,19 +14,19 @@ export default function Home({ data }: PageProps) {
   const works = data.contents ?? [];
 
   return (
-    <div id="top" class="min-h-screen bg-gray-50">
+    <div id="top" class="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
 
       <div class="max-w-4xl mx-auto px-4 py-16">
         <div id="about" class="text-center mb-16 scroll-mt-20">
-          <h1 class="text-5xl font-bold text-gray-900 mb-4">こんにちは、emeです</h1>
-          <p class="text-lg text-gray-600 max-w-xl mx-auto">
+          <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-4">こんにちは、emeです</h1>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
             自作イラストを掲示します
           </p>
         </div>
 
         <div id="works" class="scroll-mt-20">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2">
             作品一覧
           </h2>
           <WorksGallery works={works} />

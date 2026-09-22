@@ -16,7 +16,7 @@ export default function WorksGallery({ works }: { works: Work[] }) {
         {works.map((work) => (
           <div
             key={work.id}
-            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             onClick={() => setSelected(work)}
           >
             {work.image && (
@@ -27,8 +27,8 @@ export default function WorksGallery({ works }: { works: Work[] }) {
               />
             )}
             <div class="p-4">
-              <h3 class="text-lg font-semibold text-gray-900 mb-1">{work.title}</h3>
-              <p class="text-sm text-gray-600">{work.description}</p>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">{work.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">{work.description}</p>
             </div>
           </div>
         ))}
@@ -40,7 +40,7 @@ export default function WorksGallery({ works }: { works: Work[] }) {
           onClick={() => setSelected(null)}
         >
           <div
-            class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            class="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {selected.image && (
