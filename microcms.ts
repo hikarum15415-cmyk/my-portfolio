@@ -8,3 +8,11 @@ export async function getWorks() {
   );
   return res.json();
 }
+
+export async function getProfile() {
+  const res = await fetch(
+    `https://${SERVICE_DOMAIN}.microcms.io/api/v1/profile`,
+    { headers: { "X-MICROCMS-API-KEY": API_KEY } },
+  );
+  return res.json();
+}
