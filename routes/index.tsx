@@ -8,13 +8,25 @@ import ContactForm from "../islands/ContactForm.tsx";
 export const handler: Handlers = {
   async GET(_req, ctx) {
     const [works, profile] = await Promise.all([getWorks(), getProfile()]);
-    return ctx.render({ works, profile });
+
+    const kv = await Deno.openKv();
+    const key = ["visitCount"];
+    await kv.atomic().mutate({
+      type: "sum",
+      key,
+      value: new Deno.KvU64(1n),
+    }).commit();
+    const result = await kv.get<Deno.KvU64>(key);
+    const visitCount = result.value ? result.value.value.toString() : "1";
+
+    return ctx.render({ works, profile, visitCount });
   },
 };
 
 export default function Home({ data }: PageProps) {
   const works = data.works?.contents ?? [];
   const profile = data.profile ?? {};
+  const visitCount = data.visitCount ?? "0";
 
   return (
     <div id="top" class="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -48,6 +60,10 @@ export default function Home({ data }: PageProps) {
           </h2>
           <ContactForm />
         </div>
+
+        <footer class="mt-20 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-400 dark:text-gray-500">
+          累計アクセス数: {visitCount} 回
+        </footer>
       </div>
     </div>
   );

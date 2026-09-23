@@ -1,4 +1,5 @@
 import DarkModeToggle from "../islands/DarkModeToggle.tsx";
+import SocialLinks from "./SocialLinks.tsx";
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
           <a href="#about" class="hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
           <a href="#works" class="hover:text-gray-900 dark:hover:text-white transition-colors">Works</a>
           <a href="#contact" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+          <SocialLinks />
           <DarkModeToggle />
         </nav>
       </div>
