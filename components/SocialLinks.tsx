@@ -1,5 +1,5 @@
-const X_URL = "https://x.com/your_username";
-const INSTAGRAM_URL = "https://instagram.com/your_username";
+const X_URL = "https://x.com/emerald_0415";
+const INSTAGRAM_URL = "https://www.instagram.com/hikaru_865";
 const GITHUB_URL = "https://github.com/hikarum15415-cmyk";
 
 export default function SocialLinks() {
